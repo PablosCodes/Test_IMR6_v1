@@ -1,0 +1,68 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Test_IMR6_v1.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ScottPlot="clr-namespace:ScottPlot.Avalonia;assembly=ScottPlot.Avalonia"
+		mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="480"
+        x:Class="Test_IMR6_v1.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Test_IMR6_v1">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+	<Grid RowDefinitions="Auto, *, Auto">
+
+		<!-- robienie tam aby okno programu uruchamialo sie bez title menu - wrzucamy to nad x:Class w tym pliku
+		CanResize="False"
+		ExtendClientAreaToDecorationsHint="True"
+		ExtendClientAreaChromeHints="NoChrome"
+		ExtendClientAreaTitleBarHeightHint="0"
+		
+		<ScottPlot:AvaPlot Name="AvaPlot1"/>
+		-->
+
+
+		<!-- Gorny panel-->
+			<Grid Grid.Row="0" Background="Orange" Height="40" ColumnDefinitions="Auto, Auto, *, Auto">
+				<Rectangle Grid.Column="0" Fill="Red" Width="40"></Rectangle>
+				<Rectangle Grid.Column="1" Fill="Blue" Width="40"></Rectangle>
+					<StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2">
+						<Label FontWeight="Black" FontSize="20">IMR-6</Label>
+						<Label FontSize="20">Miernik</Label>
+					</StackPanel>
+				<Rectangle Grid.Column="3" Fill="Red" Width="40"></Rectangle>
+				<Rectangle Grid.Column="4" Fill="Green" Width="40"></Rectangle>
+			</Grid>
+
+		<!-- Glowne okno-->
+		<Grid Grid.Row="1" >
+
+			<ScottPlot:AvaPlot Name="AvaPlot1"/>
+		</Grid>
+
+
+
+
+
+
+
+
+
+		<!-- Dolny pasek-->
+		<Grid Grid.Row="2" Margin="5" ColumnDefinitions="Auto, Auto, *">
+			<!-- Panel boczny 1-->
+			<Button Grid.Column="0" Margin="0,0,10,0" Content="{Binding ButtonText}" Command="{Binding OnClickCommand}"/>
+			<Button Grid.Column="1" Margin="0,0,10,0">Test</Button>
+		</Grid>
+
+
+
+
+	</Grid>
+
+
+
+
+</Window>
